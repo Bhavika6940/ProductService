@@ -14,6 +14,12 @@ pipeline {
                 git url: 'https://github.com/Bhavika6940/WebApiJenkin', branch: 'master'
             }
         }
+     stage('Build .NET App') {
+            steps {
+                bat 'dotnet publish WebApiJenkins/WebApiJenkins.csproj -c Release -o out'
+            }
+        }
+
 
         stage('Terraform Init') {
             steps {
